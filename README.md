@@ -40,3 +40,7 @@ I've also included some validation related stuff.
 ### Validation
 
 ### Submitting Form
+
+## License
+
+[MIT license](LICENSE.md)
