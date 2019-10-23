@@ -2,77 +2,85 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputSelect from '../InputSelect';
 
-const InputSelectState = ({ className, fieldName, fieldValue, setFieldDirty, getFieldChanged, hasError }) => (
-<InputSelect
-  className={`input-select-state w100% h50 bdrs1 fz14 ${className || ''}`}
-  fieldName={fieldName}
-  fieldValue={fieldValue}
-  setFieldDirty={setFieldDirty}
-  getFieldChanged={getFieldChanged}
-  labelText="State:"
-  hasError={hasError}
->
+const states = {
+  AL: 'Alabama',
+  AK: 'Alaska',
+  AZ: 'Arizona ',
+  AR: 'Arkansas',
+  CA: 'California ',
+  CO: 'Colorado',
+  CT: 'Connecticut',
+  DE: 'Delaware',
+  FL: 'Florida',
+  GA: 'Georgia',
+  HI: 'Hawaii',
+  ID: 'Idaho',
+  IL: 'Illinois',
+  IN: 'Indiana',
+  IA: 'Iowa',
+  KS: 'Kansas',
+  KY: 'Kentucky',
+  LA: 'Louisiana',
+  ME: 'Maine',
+  MD: 'Maryland',
+  MA: 'Massachusetts',
+  MI: 'Michigan',
+  MN: 'Minnesota',
+  MS: 'Mississippi',
+  MO: 'Missouri',
+  MT: 'Montana',
+  NE: 'Nebraska',
+  NV: 'Nevada',
+  NH: 'New Hampshire',
+  NJ: 'New Jersey',
+  NM: 'New Mexico',
+  NY: 'New York',
+  NC: 'North Carolina',
+  ND: 'North Dakota',
+  OH: 'Ohio',
+  OK: 'Oklahoma',
+  OR: 'Oregon',
+  PA: 'Pennsylvania',
+  RI: 'Rhode Island',
+  SC: 'South Carolina',
+  SD: 'South Dakota',
+  TN: 'Tennessee',
+  TX: 'Texas',
+  UT: 'Utah',
+  VT: 'Vermont',
+  VA: 'Virginia ',
+  WA: 'Washington',
+  WV: 'West Virginia',
+  WI: 'Wisconsin',
+  WY: 'Wyoming',
+}
+
+const InputSelectState = props => (
+<InputSelect {...props} >
   <option value=""></option>
-  <option value="Alabama">Alabama</option>
-  <option value="Alaska">Alaska</option>
-  <option value="Arizona">Arizona</option>
-  <option value="Arkansas">Arkansas</option>
-  <option value="California">California</option>
-  <option value="Colorado">Colorado</option>
-  <option value="Connecticut">Connecticut</option>
-  <option value="Delaware">Delaware</option>
-  <option value="Florida">Florida</option>
-  <option value="Georgia">Georgia</option>
-  <option value="Hawaii">Hawaii</option>
-  <option value="Idaho">Idaho</option>
-  <option value="Illinois">Illinois</option>
-  <option value="Indiana">Indiana</option>
-  <option value="Iowa">Iowa</option>
-  <option value="Kansas">Kansas</option>
-  <option value="Kentucky">Kentucky</option>
-  <option value="Louisiana">Louisiana</option>
-  <option value="Maine">Maine</option>
-  <option value="Maryland">Maryland</option>
-  <option value="Massachusetts">Massachusetts</option>
-  <option value="Michigan">Michigan</option>
-  <option value="Minnesota">Minnesota</option>
-  <option value="Mississippi">Mississippi</option>
-  <option value="Missouri">Missouri</option>
-  <option value="Montana">Montana</option>
-  <option value="Nebraska">Nebraska</option>
-  <option value="Nevada">Nevada</option>
-  <option value="New Hampshire">New Hampshire</option>
-  <option value="New Jersey">New Jersey</option>
-  <option value="New Mexico">New Mexico</option>
-  <option value="New York">New York</option>
-  <option value="North Carolina">North Carolina</option>
-  <option value="North Dakota">North Dakota</option>
-  <option value="Ohio">Ohio</option>
-  <option value="Oklahoma">Oklahoma</option>
-  <option value="Oregon">Oregon</option>
-  <option value="Pennsylvania">Pennsylvania</option>
-  <option value="Rhode Island">Rhode Island</option>
-  <option value="South Carolina">South Carolina</option>
-  <option value="South Dakota">South Dakota</option>
-  <option value="Tennessee">Tennessee</option>
-  <option value="Texas">Texas</option>
-  <option value="Utah">Utah</option>
-  <option value="Vermont">Vermont</option>
-  <option value="Virginia">Virginia</option>
-  <option value="Washington">Washington</option>
-  <option value="West Virginia">West Virginia</option>
-  <option value="Wisconsin">Wisconsin</option>
-  <option value="Wyoming">Wyoming</option>
+  {
+    Object.keys(states).map((key, i) => (
+      <option
+        key={i}
+        value={props.abbrStateValue ? key : states[key]}
+      >
+        { props.abbrStateDisplay ? key : states[key] }
+      </option>
+    ))
+  }
 </InputSelect>
 );
 
 InputSelectState.propTypes = {
-  className      : PropTypes.string,
-  fieldName      : PropTypes.string.isRequired,
-  fieldValue     : PropTypes.string.isRequired,
-  setFieldDirty  : PropTypes.func.isRequired,
-  getFieldChanged: PropTypes.func.isRequired,
-  hasError       : PropTypes.bool.isRequired,
+  className        : PropTypes.string,
+  fieldName        : PropTypes.string.isRequired,
+  fieldValue       : PropTypes.string.isRequired,
+  setFieldDirty    : PropTypes.func.isRequired,
+  getFieldChanged  : PropTypes.func.isRequired,
+  hasError         : PropTypes.bool.isRequired,
+  hasError         : PropTypes.bool.isRequired,
+  abbrStateValue   : PropTypes.bool,
+  abbrStateDisplay : PropTypes.bool,
 };
 
 export default InputSelectState;

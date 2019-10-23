@@ -7,7 +7,7 @@ export default class InputButtonCheckbox extends React.Component {
     className      : PropTypes.string,
     labelText      : PropTypes.string,
     fieldName      : PropTypes.string.isRequired,
-    fieldValue     : PropTypes.number.isRequired,
+    fieldValue     : PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
     fieldSelected  : PropTypes.bool.isRequired,
     hasError       : PropTypes.bool.isRequired,
     getFieldChanged: PropTypes.func.isRequired,
@@ -45,7 +45,7 @@ export default class InputButtonCheckbox extends React.Component {
           htmlFor={fieldName}
           className={`input-button-checkbox__label posr dib w100% curp bdrs4 h56 dib ${hasError ? 'bd2-s-bright-red' : 'bd2-s-dark-gray'} ${ fieldSelected ? 'c-white bgc-dark-purple bxsh0-2-2-0-shadow' : 'bgc-alabaster' }`}
         >
-          <span className="transform-center-absolute">{ labelText }</span>
+          <span className="posa center">{ labelText }</span>
         </label>
       </span>
     </span>

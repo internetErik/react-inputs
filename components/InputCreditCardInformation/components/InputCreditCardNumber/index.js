@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputText from '../../../../components/InputText';
+import InputText from '../../../../inputs/InputText';
 import creditCardType, { getTypeInfo, types as CardType } from 'credit-card-type';
 import CreditCardTypeDisplay from './components/CreditCardTypeDisplay';
 

@@ -4,7 +4,7 @@ import InputText from '../InputText';
 import InputSelect from '../InputSelect';
 import InputSelectMonths from '../InputSelectMonths';
 import InputTextarea from '../InputTextarea';
-import InputButtonCheckboxGroup from '../../containers/InputButtonCheckboxGroup';
+import InputButtonCheckboxGroup from '../../inputs/InputButtonCheckboxGroup';
 import InputError from '../InputError';
 import InputCreditCardNumber from './components/InputCreditCardNumber';
 
@@ -66,7 +66,7 @@ export default class InputCreditCardInformation extends React.Component {
           autocomplete="cc-name"
         />
         <InputError
-          errorMessage="You must provide a name."
+          renderMessage={ () => <span>"You must provide a name.</span> }
           hasError={creditCardNameRequiredError}
         />
       </div>
@@ -79,11 +79,11 @@ export default class InputCreditCardInformation extends React.Component {
           hasError={creditCardNumberRequiredError}
         />
         <InputError
-          errorMessage="You must provide a credit card number."
+          renderMessage={ () => <span>"You must provide a credit card number.</span> }
           hasError={creditCardNumberRequiredError}
         />
         <InputError
-          errorMessage="You must provide a valid credit card number."
+          renderMessage={ () => <span>"You must provide a valid credit card number.</span> }
           hasError={creditCardNumberInvalidError}
         />
       </div>
@@ -100,7 +100,7 @@ export default class InputCreditCardInformation extends React.Component {
             autocomplete="cc-exp-month"
           />
           <InputError
-            errorMessage="You must select an expiration month."
+            renderMessage={ () => <span>"You must select an expiration month.</span> }
             hasError={creditCardExpirationMonthRequiredError}
           />
         </div>
@@ -121,7 +121,7 @@ export default class InputCreditCardInformation extends React.Component {
             }
           </InputSelect>
           <InputError
-            errorMessage="You must select an expiration year."
+            renderMessage={ () => <span>"You must select an expiration year.</span> }
             hasError={creditCardExpirationYearRequiredError}
           />
         </div>
@@ -138,7 +138,7 @@ export default class InputCreditCardInformation extends React.Component {
             autocomplete="cc-csc"
           />
           <InputError
-            errorMessage="You must provide a verification number."
+            renderMessage={ () => <span>"You must provide a verification number.</span> }
             hasError={creditCardVerificationNumberRequiredError}
           />
         </div>

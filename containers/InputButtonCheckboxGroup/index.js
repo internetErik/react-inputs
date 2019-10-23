@@ -20,10 +20,11 @@ export default class InputButtonCheckboxGroup extends React.Component {
     getFieldChanged: PropTypes.func.isRequired,
     hasError       : PropTypes.bool.isRequired,
     fieldValue     : PropTypes.arrayOf(PropTypes.shape({
-                       fieldName    : PropTypes.string.isRequired,
-                       labelText    : PropTypes.string.isRequired,
-                       fieldValue   : PropTypes.number.isRequired,
-                       fieldSelected: PropTypes.bool.isRequired,
+                       fieldName     : PropTypes.string.isRequired,
+                       labelText     : PropTypes.string.isRequired,
+                       fieldValue    : PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
+                       fieldSelected : PropTypes.bool.isRequired,
+                       className     : PropTypes.string,
                      })).isRequired,
   };
 
@@ -46,13 +47,14 @@ export default class InputButtonCheckboxGroup extends React.Component {
   render() {
     const { className, buttonClassName, hasError, getFieldChanged } = this.props;
     const { buttons } = this.state;
+
     return (
     <div className={`input-button-checkbox-group clearfix ${ className || ''}`}>
     {
-    buttons.map(({ fieldName, labelText, fieldValue, fieldSelected }, i) =>
+    buttons.map(({ fieldName, labelText, fieldValue, fieldSelected, className }, i) =>
       <InputButtonCheckbox
         key={i}
-        className={buttonClassName}
+        className={`buttonClassName ${className || ''}`}
         labelText={labelText}
         fieldName={fieldName}
         fieldValue={fieldValue}

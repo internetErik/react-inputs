@@ -9,7 +9,8 @@ import InputText from '../InputText';
  * @param  {string} max   The highest number value possible - will override value
  * @return {string}       New value for the input
  */
-const formatDollarField = (value, max = 25000) => {
+const max = 25000;
+const formatDollarField = (value, input) => {
   const length = value.length;
   const dollarOnly = length === 1 && value === '$';
   if(length === 0 || dollarOnly)

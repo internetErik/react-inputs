@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { types as CardType } from 'credit-card-type';
-import S3Image from '../../../../../S3Image';
+import S3Image from '../../../../../../components/S3Image';
 
 const cardIsOfType = (number, type) => creditCardType(number).filter(card => card.type === type).length > 0
 

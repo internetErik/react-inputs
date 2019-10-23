@@ -38,7 +38,7 @@ const InputAddress = ({
     {nameIsRequired &&
     <InputError
       className="clb"
-      errorMessage="Name is a required field."
+      renderMessage={ () => <span>Name is a required field.</span> }
       hasError={nameRequiredError}
     />
     }
@@ -56,7 +56,7 @@ const InputAddress = ({
       />
       <InputError
         className="clb"
-        errorMessage="Address is a required field."
+        renderMessage={ () => <span>Address is a required field.</span> }
         hasError={addressRequiredError}
       />
     </div>
@@ -83,21 +83,23 @@ const InputAddress = ({
       />
       <InputError
         className="clb"
-        errorMessage="City is a required field."
+        renderMessage={ () => <span>City is a required field.</span> }
         hasError={cityRequiredError}
       />
     </div>
     <div className="span-4 span-12@md">
       <InputSelectState
+        className="input-select-state w100% h50 bdrs1 fz14"
         fieldName={`${fieldNamePrefix}State`}
         fieldValue={stateValue}
+        labelText="State:"
         setFieldDirty={handleFieldChanged}
         getFieldChanged={handleFieldChanged}
         hasError={stateRequiredError}
       />
       <InputError
         className="clb"
-        errorMessage="State is a required field"
+        renderMessage={ () => <span>State is a required field</span> }
         hasError={stateRequiredError}
       />
     </div>
@@ -113,7 +115,7 @@ const InputAddress = ({
       />
       <InputError
         className="clb"
-        errorMessage="A valid zip is required."
+        renderMessage={ () => <span>A valid zip is required.</span> }
         hasError={zipRequiredError}
       />
     </div>

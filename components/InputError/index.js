@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputError = ({hasError, errorMessage, className}) => (
+const InputError = ({hasError, renderMessage, className}) => (
 <div className={`input-error c-bright-red fz12 ${className || ''}`}>
-  {hasError && errorMessage}
+  {hasError && renderMessage()}
 </div>
 );
 
 InputError.propTypes = {
-  errorMessage: PropTypes.string.isRequired,
-  hasError    : PropTypes.bool.isRequired,
-  className   : PropTypes.string,
+  hasError      : PropTypes.bool.isRequired,
+  renderMessage : PropTypes.func.isRequired,
+  className     : PropTypes.string,
 }
 
 export default InputError;
